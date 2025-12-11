@@ -1,12 +1,59 @@
-from .folder_catalog import ensure_folders_from_csv
-from config import FOLDER_CATALOG_CSV, DRIVE_PARENT_ID
-from state import LABEL_TO_ID, LABEL_DESC, ALLOWED, LABEL_FOLDER_IDS
+# services/labels.py
 
-def hydrate_labels(drive) -> None:
-    """Load CSV→Drive folder map into in-memory globals (mutates, no rebinding)."""
-    label_to_id, label_desc, allowed = ensure_folders_from_csv(drive, FOLDER_CATALOG_CSV, DRIVE_PARENT_ID)
-    LABEL_TO_ID.clear(); LABEL_TO_ID.update(label_to_id)
-    LABEL_DESC.clear(); LABEL_DESC.update(label_desc)
-    ALLOWED.clear(); ALLOWED.extend(allowed)
-    LABEL_FOLDER_IDS.clear(); LABEL_FOLDER_IDS.update(LABEL_TO_ID.values())
-    print(f"[HYDRATE] labels={len(ALLOWED)} folders={len(LABEL_FOLDER_IDS)}")
+"""
+Label / folder initialization logic.
+
+This module connects the folder catalog (CSV + Drive folders)
+with the in-memory state registry.
+
+Typical usage:
+
+    from services.drive_client import get_drive
+    from services.labels import hydrate_labels
+
+    drive = get_drive()
+    hydrate_labels(drive)
+
+After that, other modules can import from services.state:
+
+    from services.state import LABEL_TO_ID, LABEL_DESC, ALLOWED
+"""
+
+from typing import Any
+
+from services.folder_catalog import ensure_folders_from_csv
+from services.state import (
+    set_label_mappings,
+    LABEL_TO_ID,
+    LABEL_DESC,
+    ALLOWED,
+    is_initialized,
+)
+
+
+def hydrate_labels(drive: Any, force: bool = False) -> None:
+    """
+    Ensure label mappings are loaded from folders.csv and Drive.
+
+    - If state is already initialized and force=False, this is a no-op.
+    - If force=True, it will re-read CSV, re-check Drive folders, and
+      update the in-memory mappings.
+
+    This should typically be called once at startup, before processing
+    any files.
+    """
+    if is_initialized() and not force:
+        print("[LABELS] Already initialized; skipping hydrate_labels()")
+        return
+
+    label_to_id, label_desc, allowed = ensure_folders_from_csv(drive)
+    set_label_mappings(label_to_id, label_desc, allowed)
+    print("[LABELS] Hydration complete.")
+
+
+__all__ = [
+    "hydrate_labels",
+    "LABEL_TO_ID",
+    "LABEL_DESC",
+    "ALLOWED",
+]

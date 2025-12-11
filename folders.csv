@@ -1,10 +1,11 @@
 label,folder_id,description
-Invoices,1yW0mAQ49Ug_SY42awdd2zZg8Oj4JaYLq,"Vendor invoices, receipts, totals"
-Academics,1blzUK2HPAuaP-QSSWOYDFDaS1beyBbbE,"Transcripts, GPA, LORs, assignments"
-IDs,1AcnDn1T1BXwc1YnbSTTvIppMWvY5B_0p,"Government IDs: passport, driver’s license, student ID"
-Photos,1Zz4j0t5Fscw2VPVmoA6avG7YzsKghIaw,Personal photos and scanned images
-Tax Docs,11DjRweZHtIxHsXfdUome-zBPAlO8hOy7,"W-2s, returns, 1099s, Form 16"
-Offers & Letters,1wxwq3XflvmZG174qh9sSbNwQosW-2jh8,"Offer letters, recommendation letters, HR docs"
-Healthcare,1nv7PXJg9_pu-o7FkByokXp_PLw0Wasgy,"Medical reports, prescriptions, bills"
-Work,1LPB8ZcUjXGWuDQwBhyH3BcXYqybQp8lL,"Work docs, resumes, portfolios, project files"
-Misc,1-HLNa_2xFvTR_W7P1k9CnRkFdE9icUR0,Catch-all for uncategorized documents
+Invoices,1VnV7KqpF4iERn0al4CEt-rcUyxIyG6dG,"Vendor invoices, receipts, totals"
+Academics,1e5vhz2_Ve-sF7WuBZYKFr6-WR-bHv1L0,"Transcripts, GPA, LORs, assignments"
+IDs,1Enw-nFzkRGpY1vDIiXFXpiDDlgIUZV-Z,"Government IDs: passport, driver’s license, student ID"
+Photos,1k2B20j2-LGKzWkRSScxwXPO24t5sHee7,Personal photos and scanned images
+Tax Docs,1Q0d0sJjc8ivv5JC1kCJ-WAkoE3h_ce21,"W-2s, returns, 1099s, Form 16"
+Offers & Letters,1NWOjn79wYBZ4jxT7Nib5ZibuEY3yanzS,"Offer letters, recommendation letters, HR docs"
+Healthcare,1HUKHBsPXFmpgeRpHjgIc9BPmpSgA33Lc,"Medical reports, prescriptions, bills"
+Work,1GnrhZDsDf7GYnBp6TGZBi5HyS2S279XX,"Work docs, resumes, portfolios, project files"
+Misc,1wSlajOHupHB8DxgzHaNDWS6Q8fdwcmpZ,Catch-all for uncategorized documents
+Code,1wSlajOHupHB8DxgzHaNDWS6Q8fdwcfth, Code files 
